@@ -15,7 +15,7 @@
         <setting name="mapUnderscoreToCamelCase" value="true" />
     </settings>
     <plugins>
-        <plugin interceptor="com.imooc.o2o.dao.split.DynamicDataSourceInterceptor">
+        <plugin interceptor="com.miaozhen.o2o.dao.split.DynamicDataSourceInterceptor">
         </plugin>
     </plugins>
 </configuration>
