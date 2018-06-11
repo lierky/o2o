@@ -9,6 +9,7 @@ import com.miaozhen.o2o.entity.ShopCategory;
 import com.miaozhen.o2o.enums.ShopStateEnum;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.miaozhen.o2o.service.ShopService;
 
 import java.io.File;
 import java.util.Date;
