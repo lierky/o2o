@@ -80,6 +80,6 @@
         <appender-ref ref="errorAppender"/>
     </logger>
     <root level="info">
-        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="infoAppender"/>
     </root>
 </configuration>
