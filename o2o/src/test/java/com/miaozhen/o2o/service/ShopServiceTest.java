@@ -7,20 +7,22 @@ import com.miaozhen.o2o.entity.PersonInfo;
 import com.miaozhen.o2o.entity.Shop;
 import com.miaozhen.o2o.entity.ShopCategory;
 import com.miaozhen.o2o.enums.ShopStateEnum;
+import com.miaozhen.o2o.exceptions.ShopOperationException;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.miaozhen.o2o.service.ShopService;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
-public class ShopServiceTest extends BaseTest {
+public class ShopServiceTest extends BaseTest{
     @Autowired
     private ShopService shopService;
     @Test
-    public void teatAddShop(){
+    public void teatAddShop() throws ShopOperationException,FileNotFoundException {
         Shop shop = new Shop();
         PersonInfo owner = new PersonInfo();
         Area area = new Area();
@@ -31,7 +33,7 @@ public class ShopServiceTest extends BaseTest {
         shop.setOwner(owner);
         shop.setArea(area);
         shop.setShopCategory(shopCategory);
-        shop.setShopName("lier的花店1");
+        shop.setShopName("lier的花店2");
         shop.setShopDesc("test1");
         shop.setShopAddr("test1");
         shop.setPhone("1234561");
@@ -39,7 +41,7 @@ public class ShopServiceTest extends BaseTest {
         shop.setEnableStatus(ShopStateEnum.CHECK.getState());
         shop.setAdvice("审核中");
         File shopImg = new File("C:/liuhongli/test.png");
-        ShopExecution se = shopService.addShop(shop,shopImg);
+        ShopExecution se = shopService.addShop(shop,new FileInputStream(shopImg),shopImg.getName());
         assertEquals(ShopStateEnum.CHECK.getState(),se.getState());
     }
 }

@@ -1,4 +1,4 @@
-package com.miaozhen.o2o.util.wechat;
+package com.miaozhen.o2o.util;
 
 public class PathUtil {
     private static String separator = System.getProperty("file.separator");
@@ -15,7 +15,7 @@ public class PathUtil {
     }
     //获取商铺对应的图片文件夹
     public static String getShopImagePath(long shopId){
-        String imagepath = "/upload/item/shop/"+shopId+"/";
+        String imagepath = "upload/item/shop/"+shopId+"/";
         return imagepath.replace("/",separator);
     }
 }

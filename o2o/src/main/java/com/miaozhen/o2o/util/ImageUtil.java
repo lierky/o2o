@@ -1,4 +1,4 @@
-package com.miaozhen.o2o.util.wechat;
+package com.miaozhen.o2o.util;
 
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
@@ -9,6 +9,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -35,11 +36,11 @@ public class ImageUtil {
         return newFile;
     }
     //生成缩略图,并返回目标相对路径，存入数据库中
-    public static String generateThumbnail(File thumbnail,String targetAddr){
+    public static String generateThumbnail(InputStream thumbnailInputStream, String fileName,String targetAddr){
         //获取图片名
         String realFilename = getRandomFileName();
         //获取扩展名
-        String extension = getFileExtension(thumbnail);
+        String extension = getFileExtension(fileName);
         //创建存储的目录
         makeDirPath(targetAddr);
         String relativeAddr = targetAddr +realFilename+extension;
@@ -49,7 +50,7 @@ public class ImageUtil {
         //输入要处理的图片，生成缩略图
         logger.debug("current cpmplete addr is:"+PathUtil.getImgBasePath()+relativeAddr);
         try {
-            Thumbnails.of(thumbnail ).size(200,200)
+            Thumbnails.of(thumbnailInputStream).size(200,200)
                     .watermark(Positions.BOTTOM_RIGHT,ImageIO.read(new File(basePath+"/watermark.jpg")),0.25f)
                     .outputQuality(0.8f).toFile(dest);
         } catch (IOException e) {
@@ -66,13 +67,12 @@ public class ImageUtil {
         }
     }
 
-    private static String getFileExtension(File cFile) {
-        String originalFileName = cFile.getName();
-        return originalFileName.substring(originalFileName.lastIndexOf("."));
+    private static String getFileExtension(String fileName) {
+        return fileName.substring(fileName.lastIndexOf("."));
     }
 
     //生成文件名称
-    private static String getRandomFileName() {
+    public static String getRandomFileName() {
         int rannum = r.nextInt(89999)+10000;
         String nowTimeStr = simpleDateFormat.format(new Date());
         return nowTimeStr+rannum;
@@ -82,8 +82,8 @@ public class ImageUtil {
 
     public static void main(String[] args) throws IOException {
 
-        Thumbnails.of(new File("C:\\liuhongli\\test.png")).size(600,600)
+        Thumbnails.of(new File("C:/liuhongli/test.png")).size(600,600)
                 .watermark(Positions.BOTTOM_RIGHT,ImageIO.read(new File(basePath+"/watermark.jpg")),0.25f).
-                outputQuality(0.8f).toFile("C:\\liuhongli\\test-watermark.png");
+                outputQuality(0.8f).toFile("C:/liuhongli/test-watermark.png");
     }
 }
