@@ -22,7 +22,7 @@ public class ShopServiceTest extends BaseTest{
     @Autowired
     private ShopService shopService;
     @Test
-    public void teatAddShop() throws ShopOperationException,FileNotFoundException {
+    public void teatmiaozhen() throws ShopOperationException,FileNotFoundException {
         Shop shop = new Shop();
         PersonInfo owner = new PersonInfo();
         Area area = new Area();

@@ -52,4 +52,5 @@ public interface ShopDao {
 	 * @return
 	 */
 	int updateShop(Shop shop);
+
 }
