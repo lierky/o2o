@@ -51,7 +51,7 @@ public class ShopManagementController {
 		if(shopId<=0){
 			Object currentShopObj = request.getSession().getAttribute("currentShop");
 			if(currentShopObj == null){
-				modelMap.put("url","/shop/shopList");
+				modelMap.put("url","/shopadmin/shopList");
 			}else {
 				Shop currentShop = (Shop) currentShopObj;
 				currentShop.setShopId(shopId);
@@ -69,11 +69,8 @@ public class ShopManagementController {
 	@ResponseBody
 	private Map<String,Object> getShopList(HttpServletRequest request){
 		Map<String,Object> modelMap = new HashMap<>();
-		PersonInfo user = (PersonInfo) request.getSession().getAttribute("user");
+		PersonInfo user = new PersonInfo();
 		user.setUserId(1L);
-		user.setName("test");
-		long employeeId = user.getUserId();
-		List<Shop> shopList = new ArrayList<>();
 		try{
 			Shop shopCondition = new Shop();
 			shopCondition.setOwner(user);
