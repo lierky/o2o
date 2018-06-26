@@ -33,7 +33,7 @@
 		</property>
 	</bean>
 	<!-- Redis的key操作 -->
-	<bean id="jedisKeys" class="com.imooc.o2o.cache.JedisUtil$KEYS"
+	<bean id="jedisKeys" class="com.imooc.o2o.cache.JedisUtil$Keys"
 		scope="singleton">
 		<constructor-arg ref="jedisUtil"></constructor-arg>
 	</bean>

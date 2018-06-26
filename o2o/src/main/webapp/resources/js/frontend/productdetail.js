@@ -2,7 +2,7 @@ $(function() {
 	// 从地址栏的URL里获取productId
 	var productId = getQueryString('productId');
 	// 获取商品信息的URL
-	var productUrl = '/o2o/frontend/listproductdetailpageinfo?productId='
+	var productUrl = '/frontend/listproductdetailpageinfo?productId='
 			+ productId;
 	// 访问后台获取该商品的信息并渲染
 	$.getJSON(productUrl, function(data) {
@@ -50,7 +50,7 @@ $(function() {
 			// if (data.needQRCode) {
 			// // 生成购买商品的二维码供商家扫描
 			// imgListHtml += '<div> <img
-			// src="/o2o/frontend/generateqrcode4product?productId='
+			// src="/frontend/generateqrcode4product?productId='
 			// + product.productId
 			// + '" width="100%"/></div>';
 			// }
