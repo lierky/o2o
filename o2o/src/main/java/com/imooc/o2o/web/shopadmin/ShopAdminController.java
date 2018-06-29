@@ -48,9 +48,4 @@ public class ShopAdminController {
 		// 转发至商品管理页面
 		return "shop/productmanagement";
 	}
-
-	public static void main(String[] args) {
-		System.out.println("lhl");
-	}
-
 }
