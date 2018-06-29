@@ -24,7 +24,7 @@ import com.imooc.o2o.util.wechat.WechatUtil;
 
 /**
  * 获取关注公众号之后的微信用户信息的接口，如果在微信浏览器里访问
- * https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd7f6c5b8899fba83&redirect_uri=http://o2o.yitiaojieinfo.com/o2o/wechatlogin/logincheck&role_type=1&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect
+ * https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9a9b7a03866aa843&redirect_uri=http://http://39.106.97.249/o2o/wechatlogin/logincheck&role_type=1&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect
  * 则这里将会获取到code,之后再可以通过code获取到access_token 进而获取到用户信息
  * 
  * @author xiangze

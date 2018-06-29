@@ -2,7 +2,7 @@ $(function() {
 	$('#log-out').click(function() {
 		// 清除session
 		$.ajax({
-			url : "/local/logout",
+			url : "/o2o/local/logout",
 			type : "post",
 			async : false,
 			cache : false,
@@ -11,7 +11,7 @@ $(function() {
 				if (data.success) {
 					var usertype = $("#log-out").attr("usertype");
 					// 清除成功后退出到登录界面
-					window.location.href = "/local/login?usertype=" + usertype;
+					window.location.href = "/o2o/local/login?usertype=" + usertype;
 					return false;
 				}
 			},
